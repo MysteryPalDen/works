@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/data">
+        <file>data/background.png</file>
+        <file>data/Pokemon_sprites/Blastoise_back.gif</file>
+        <file>data/Pokemon_sprites/Blastoise_front.gif</file>
+        <file>data/Pokemon_sprites/Charizard_back.gif</file>
+        <file>data/Pokemon_sprites/Charizard_front.gif</file>
+        <file>data/Pokemon_sprites/Mewtwo_back.gif</file>
+        <file>data/Pokemon_sprites/Mewtwo_front.gif</file>
+        <file>data/Pokemon_sprites/Pikachu_back.gif</file>
+        <file>data/Pokemon_sprites/Pikachu_front.gif</file>
+        <file>data/Animations/Fire_attack_back.gif</file>
+        <file>data/Animations/Fire_attack_front.gif</file>
+        <file>data/Animations/Electric_attack_back.gif</file>
+        <file>data/Animations/Electric_attack_front.gif</file>
+        <file>data/Animations/Grass_attack_back.gif</file>
+        <file>data/Animations/Grass_attack_front.gif</file>
+        <file>data/Animations/Normal_attack_back.gif</file>
+        <file>data/Animations/Normal_attack_front.gif</file>
+        <file>data/Animations/Psychic_attack_back.gif</file>
+        <file>data/Animations/Psychic_attack_front.gif</file>
+        <file>data/Animations/Water_attack_back.gif</file>
+        <file>data/Animations/Water_attack_front.gif</file>
+        <file>data/Animations/Fighting_attack_back.gif</file>
+        <file>data/Animations/Fighting_attack_front.gif</file>
+        <file>data/Pokemon_sprites/Sunflora_back.gif</file>
+        <file>data/Pokemon_sprites/Sunflora_front.gif</file>
+    </qresource>
+</RCC>
