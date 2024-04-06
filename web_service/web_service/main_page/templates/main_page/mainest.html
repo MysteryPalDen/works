@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link type="text/css" href="{% static 'main_page/css/styles.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'main_page/images/main.ico' %}" type="image/x-icon"/>
+</head>
+<body>
+<div id = "header"></div>
+<div class = "button_block">Тестировка</div>
+<div class = "button_block">О нас</div>
+<div class = "button_block">Что то ещё</div>
+<div class = "button_block">Ещё что то</div>
+<div  class = "middle_text">Данные:</div>
+<table class="container">
+  <colgroup>
+    <col span="2" style="background:Khaki"><!-- С помощью этой конструкции задаем цвет фона для первых двух столбцов таблицы-->
+    <col style="background-color:LightCyan"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
+  </colgroup>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Device</th>
+  </tr>
+  {% for o in obj %}
+  <tr>
+    <th>{{o.id}}</th>
+    <th>{{o.name}}</th>
+    <th>{{o.device}}</th>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
