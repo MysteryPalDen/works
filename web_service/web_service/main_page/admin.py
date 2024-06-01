@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Emergencies, Users, Recieve
 
-# Register your models here.
+admin.site.register(Emergencies)
+admin.site.register(Users)
+admin.site.register(Recieve)

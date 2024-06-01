@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="/../../static/main_page/css/styles.css">
+
+</head>
+{% block stuff %}
+<div id = "header">
+        <a class = "header_block" href="{% url 'home' %}">Главная</a>
+        <div class = "header_block" id = "activated_header" >Личный кабинет</div>
+        {% if request.user.is_authenticated%}
+        <a class = "auth_block" href="{% url 'logout' %}">Выйти</a>
+        <div class = "auth_block"> {{user.username}}</div>
+        {% else %}
+        <a class = "auth_block" href="{% url 'login' %}">Войти</a>
+        <a class = "auth_block" href="{% url 'register' %}">Регистрация</a>
+        {% endif %}
+</div>
+{% if request.user.is_authenticated%}
+<h2 class = "personal_header">
+        Контроллеры
+</h2>
+<div class = "personal_text">
+        Ваши контроллеры:
+</div>
+<table class="container_2">
+  <colgroup>
+  </colgroup>
+    <thead>
+    <tr>
+        <th><div style="color: white; background-color: #001F99">Имя</div></th>
+        <th><div style="color: white; background-color: #001F99">Ключ</div></th>
+    </tr>
+    </thead>
+  {% for d in data %}
+  <tr>
+    <th>{{d.controller.get_controller_name}}</th>
+    <th>{{d.controller.get_special_key}}</th>
+  </tr>
+  {% endfor %}
+</table>
+<div class = "personal_text">
+        Добавить контроллер
+</div>
+<form method="post" novalidate class = "personal_text">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Добавить" />
+</form>
+<hr>
+<h2 class = "personal_header">
+        Протечки
+</h2>
+<table class="container_2">
+  <colgroup>
+  </colgroup>
+    <thead>
+    <tr>
+        <th><div style="color: white; background-color: #001F99">Контроллер</div></th>
+        <th><div style="color: white; background-color: #001F99">Ключ контролера</div></th>
+        <th><div style="color: white; background-color: #001F99">Ошибка</div></th>
+        <th><div style="color: white; background-color: #001F99">Время</div></th>
+    </tr>
+    </thead>
+  {% for d in data_2 %}
+  <tr>
+      <th>{{d.controller.get_controller_name}}</th>
+      <th>{{d.controller.get_special_key}}</th>
+      <th>{{d.emergency.get_em_name}}</th>
+      <th>{{d.get_time}}</th>
+  </tr>
+  {% endfor %}
+</table>
+<hr>
+<h2 class = "personal_header">
+        Учёт воды
+</h2>
+<div class = "personal_text">
+        Потрачено воды за этот месяц: {{water_amount}} литров
+</div>
+<table class="container_2">
+  <colgroup>
+  </colgroup>
+    <thead>
+    <tr>
+        <th><div style="color: white; background-color: #001F99">Контроллер</div></th>
+        <th><div style="color: white; background-color: #001F99">Ключ контролера</div></th>
+        <th><div style="color: white; background-color: #001F99">Время</div></th>
+    </tr>
+    </thead>
+  {% for d in data_3 %}
+  <tr>
+      <th>{{d.controller.get_controller_name}}</th>
+      <th>{{d.controller.get_special_key}}</th>
+      <th>{{d.get_time}}</th>
+  </tr>
+  {% endfor %}
+</table>
+<hr>
+{% else %}{% endif %}
+{% endblock %}

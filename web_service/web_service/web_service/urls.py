@@ -16,14 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main_page.views import page_main
-from django.urls import include
+from main_page.views import page_main, page_recieve
+from main_page.views import BaseAPIView
 from django.views.static import serve as mediaserve
-import settings
+from django.urls import include, re_path
+from web_service import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main_page/', page_main),
     path('', include('main_page.urls')),
+    path('api/datalist', BaseAPIView.as_view(), name='api')
 ]
+
+if not (settings.DEBUG):
+    urlpatterns+= [
+        re_path(f'^{settings.STATIC_URL.lstrip("/")}(?P<path>.*)$', mediaserve, {'document_root': settings.STATIC_ROOT}),
+    ]

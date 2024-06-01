@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/../../static/main_page/css/styles.css">
+</head>
+<body>
+    <div id = "header"></div>
+    <div class = "real_middle_text">Регистрация</div>
+    <div class = "register_form">
+    <form method="post">
+        {% csrf_token %}
+
+        {% for f in form %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+
+        <button type="submit">Отправить</button>
+    </form>
+    </div>
+</body>
+</html>

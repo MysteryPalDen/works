@@ -5,36 +5,90 @@
 }
 
 html, body {
-	background-color: #a4fffd;
+	background-color: #ffffff;
 	height: 100%;
 	width: 100%;
 	color: #444;
 }
 #header {
-	background-color: #001F99;
-	background-position: top;
-	height: 10vh;
-	width: 100%;
+	background-color: #001F99 !important;
+	background-position: top !important;
+	height: 10vh !important;
+	width: 100% !important;
 }
 
-div.button_block {
-	background-color: #0D40FF;
+#activated_header{
+    background-color: #a8baff;
+}
+
+#activated_header:active{
+	background-color: #a8baff;
+}
+
+#inactive_header{
+    color: white;
+    text-decoration: line-through;
+}
+
+#inactive_header:hover {
+    background-color: #001F99;
+}
+
+#inactive_header:active{
+	background-color: #001F99;
+}
+
+.auth_block {
+    background-color: #001F99;
 	text-align: center;
-	line-height: 10vh;
-	user-select: none;
-	font-size: 5vh;
 	color: white;
+	user-select: none;
+	line-height: 10vh;
+	height: 10vh;
+    float: right;
+    font-size: 3vh;
+	width: 10vw;
+}
+
+.header_block {
+	background-color: #001F99;
+	font-size: 5vh;
+	text-align: center;
+	color: white;
+	user-select: none;
 	float: left;
+	line-height: 10vh;
 	height: 10vh;
 	width: 25vw;
 }
 
-div.button_block:hover {
+.header_block:hover {
 	background-color: #a8baff;
 }
 
-div.button_block:active{
+.header_block:active{
 	background-color: #001F99;
+}
+
+a:hover {
+	background-color: #a8baff;
+}
+.register_form{
+    position: absolute;
+	top: 40vh;
+	left: 30vw;
+}
+
+.form-input {
+    height: 5vh;
+    width: 300px;
+    font-size: 16px;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 200px;
+    vertical-align: top;
 }
 
 img.top_image {
@@ -48,12 +102,37 @@ div.middle_text {
 	font-size: 5vh;
 	text-align: center;
 	position: absolute;
-	top: 30vh;
-	left: 40vw;
+	top: 40vh;
+	left: 18vw;
 }
 
-table {
-   border: 1px solid grey;
+.real_middle_text {
+    height: 10vh;
+	width: 20vw;
+	font-size: 5vh;
+	text-align: center;
+	position: absolute;
+	top: 25vh;
+	left: 40vw;
+}
+div.middle_text_2 {
+	height: 10vh;
+	width: 40vw;
+	font-size: 5vh;
+	text-align: center;
+	position: absolute;
+	top: 50vh;
+	left: 8vw;
+}
+
+.tglink {
+    position: absolute;
+	top: 28vh;
+	left: 60vw;
+}
+
+.container {
+    border: 1px solid grey;
 	margin-left: auto;
     margin-right: auto;
 	width: 50vw;
@@ -61,6 +140,25 @@ table {
 	top: 50vh;
 	left: 25vw;
 }
+
+.personal_header {
+    background-color: white;
+    margin: 3vh 10vw 3vh 10vw;
+	font-size: 5vh;
+}
+
+.personal_text {
+    background-color: white;
+    margin: 3vh 10vw 3vh 10vw;
+	font-size: 3vh;
+}
+
+.container_2 {
+    border: 1px solid grey;
+	margin: 3vh 10vw 3vh 10vw;
+	width: 50vw;
+}
+
 /* границы ячеек первого ряда таблицы */
 th {
    border: 1px solid grey;

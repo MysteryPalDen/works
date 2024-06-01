@@ -1,36 +1,26 @@
-{% load static %}
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
-    <link type="text/css" href="{% static 'main_page/css/styles.css' %}" rel="stylesheet" />
-    <link rel="shortcut icon" href="{% static 'main_page/images/main.ico' %}" type="image/x-icon"/>
+
+
 </head>
-<body>
-<div id = "header"></div>
-<div class = "button_block">Тестировка</div>
-<div class = "button_block">О нас</div>
-<div class = "button_block">Что то ещё</div>
-<div class = "button_block">Ещё что то</div>
-<div  class = "middle_text">Данные:</div>
-<table class="container">
-  <colgroup>
-    <col span="2" style="background:Khaki"><!-- С помощью этой конструкции задаем цвет фона для первых двух столбцов таблицы-->
-    <col style="background-color:LightCyan"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
-  </colgroup>
-  <tr>
-    <th>id</th>
-    <th>Name</th>
-    <th>Device</th>
-  </tr>
-  {% for o in obj %}
-  <tr>
-    <th>{{o.id}}</th>
-    <th>{{o.name}}</th>
-    <th>{{o.device}}</th>
-  </tr>
-  {% endfor %}
-</table>
-</body>
-</html>
+{% block stuff %}
+<div id = "header">
+        <div class = "header_block" id = "activated_header">Главная</div>
+        {% if request.user.is_authenticated%}
+        <a class = "header_block" href="{% url 'personal_area' %}">Личный кабинет</a>
+        <a class = "auth_block" href="{% url 'logout' %}">Выйти</a>
+        <div class = "auth_block"> {{user.username}}</div>
+        {% else %}
+        <div class = "header_block" id = "inactive_header">Личный кабинет</div>
+        <a class = "auth_block" href="{% url 'login' %}">Войти</a>
+        <a class = "auth_block" href="{% url 'register' %}">Регистрация</a>
+        {% endif %}
+</div>
+<div class = "middle_text">Здравствуйте</div>
+<div class = "middle_text_2">После входа в аккаунт воспользуйтесь телеграмм ботом для оповещения об ошибках</div>
+<img class = "tglink" src="/../../static/main_page/images/tg_qr.jpg">
+{% endblock %}
